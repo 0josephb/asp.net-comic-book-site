@@ -21,13 +21,28 @@
     <title></title>
 </head>
 <body>
-    <div>
-        <h1>@seriesTitle</h1>
+	<div>
+		<h1>@seriesTitle</h1>
 		<h2>@issueNumber</h2>
 		<h5>Description:</h5>
 		<div>@Html.Raw(description)</div>
-		<h5>Artists:</h5>
-		<div>@artists</div>
-    </div>
+
+		@if (artists.Length > 0)
+		{
+			<h5>Artists:</h5>
+			<div>
+				<ul>
+					@foreach (var artist in artists)
+					{
+						<li>@artist</li>
+					}
+				</ul>
+			</div>
+		}
+		else { 
+			<p>No artist info given.</p>
+		}
+
+	</div>
 </body>
 </html>
